@@ -12,7 +12,7 @@ import java.util.NoSuchElementException;
 public class VKMainPage extends BasePage {
     private static final String PAGE_URL = "http://vk.com";
 
-    @FindBy(xpath = "//div[@id='name']")
+    @FindBy(xpath = "//input[@id='quick_email']")
     WebElement name;
 
     public VKMainPage(){
