@@ -15,6 +15,9 @@ public class GoogleSearchResultsPage extends BasePage {
     @FindBy(xpath = "//div[@id='search']")
     private WebElement searchResults;
 
+    @FindBy(xpath = "(id('rso')/x:div/x:div/x:div/x:h3/x:a)[1]")
+    private WebElement firstResult;
+
     public GoogleSearchResultsPage() {
         super(false);
     }
@@ -33,6 +36,11 @@ public class GoogleSearchResultsPage extends BasePage {
         } catch (NoSuchElementException ex) {
             return false;
         }
+    }
+
+    public VKMainPage clickFirstResult(){
+        firstResult.click();
+        return new VKMainPage();
     }
 
 }

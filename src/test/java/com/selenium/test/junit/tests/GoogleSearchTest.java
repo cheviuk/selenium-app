@@ -3,11 +3,14 @@ package com.selenium.test.junit.tests;
 import com.selenium.test.junit.rules.ScreenShotOnFailRule;
 import com.selenium.test.pages.GoogleMainPage;
 import com.selenium.test.pages.GoogleSearchResultsPage;
+import com.selenium.test.pages.VKMainPage;
 import com.selenium.test.webtestsbase.WebDriverFactory;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by daria on 15.11.15.
@@ -25,11 +28,12 @@ public class GoogleSearchTest {
     public void googleSearchTest() {
         String searchString = "VK";
         GoogleMainPage googleMainPage = new GoogleMainPage();
-        googleMainPage.openPage();
         googleMainPage.insertSearchString(searchString);
-        GoogleSearchResultsPage = googleMainPage.clickSearchButton();
-        assertTrue("", GoogleSearchResultsPage.isPageOpened());
-        TEST
+        GoogleSearchResultsPage googleSearchResultsPage = googleMainPage.clickSearchButton();
+        assertTrue("Search results page has been successfully opened.", googleSearchResultsPage.isPageOpened());
+        VKMainPage vkMainPage = googleSearchResultsPage.clickFirstResult();
+        assertTrue("VK has been successfully opened.", vkMainPage.isPageOpened());
+
 
     }
 

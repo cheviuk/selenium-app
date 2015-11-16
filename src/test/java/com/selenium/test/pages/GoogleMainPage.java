@@ -13,7 +13,7 @@ public class GoogleMainPage extends BasePage {
     @FindBy(xpath = "//input[@id='lst-ib']")
     private WebElement searchField;
 
-    @FindBy(xpath = "//input[@type='submit']")
+    @FindBy (xpath = "//input[@id='lst-ib']") // (xpath = "//id(@id='sblsbb')")
     private WebElement searchButton;
 
     public GoogleMainPage() {
